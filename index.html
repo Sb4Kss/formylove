@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story ❤️</title>
+    <style>
+        :root {
+            --pink: #ff4d6d;
+            --soft-pink: #ffeef2;
+            --red: #c9184a;
+            --text-gray: #444;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #ffdae0;
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 450px;
+            height: 680px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            position: relative;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Page System */
+        .page {
+            display: none;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .active { display: flex; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h1 { color: var(--red); font-size: 1.5rem; margin-top: 10px; margin-bottom: 15px; }
+        p { color: var(--text-gray); font-size: 0.95rem; line-height: 1.5; }
+
+        .main-img {
+            width: 100%;
+            max-height: 250px;
+            object-fit: contain;
+            border-radius: 15px;
+            border: 4px solid var(--soft-pink);
+            margin-bottom: 15px;
+        }
+
+        /* Memory Map / Long Distance Visual */
+        .ld-visual {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: 15px 0;
+            font-weight: bold;
+            color: var(--red);
+        }
+
+        .dotted-line {
+            flex-grow: 1;
+            border-top: 3px dashed var(--pink);
+            margin: 0 15px;
+            position: relative;
+        }
+
+        .dotted-line::after {
+            content: '✈️';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Photo Stack (Creative 5 Pics) */
+        .photo-stack {
+            position: relative;
+            height: 280px;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 6px 6px 15px 6px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: absolute;
+            width: 100px;
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+
+        .polaroid img { width: 100%; height: 100px; object-fit: cover; }
+
+        .p1 { left: 0; top: 0; transform: rotate(-10deg); }
+        .p2 { right: 0; top: 10px; transform: rotate(15deg); }
+        .p3 { left: 50%; top: 40%; transform: translate(-50%, -50%) rotate(-5deg); width: 130px; z-index: 10; }
+        .p4 { left: 5%; bottom: 10px; transform: rotate(10deg); }
+        .p5 { right: 5%; bottom: 0; transform: rotate(-12deg); }
+
+        /* Buttons */
+        .click-me {
+            background-color: var(--pink);
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: auto;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3);
+        }
+
+        .click-me:hover { background-color: var(--red); transform: translateY(-3px); }
+
+        .letter-box {
+            background: #fffafa;
+            padding: 15px;
+            border: 1px inset #ffccd5;
+            border-radius: 15px;
+            text-align: left;
+            font-style: italic;
+            overflow-y: auto;
+            max-height: 250px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="page active" id="page1">
+            <h1 style="font-size: 2rem;">Hey شروقي... ❤️</h1>
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpndW1ndzJmNXZueXpsZzBxeXp6bm96ZzB6ZzB6ZzB6ZzB6ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" class="main-img">
+            <p>Well i do know that you know that i love but hihi i love you more than yo know my kitty 🤭</p>
+            <button class="click-me" onclick="nextPage(2)">How it all started →</button>
+        </div>
+
+        <div class="page" id="page2">
+            <h1>The First Message</h1>
+            <img src="https://media.discordapp.net/attachments/979747094858448966/1480166828360728773/image.jpg?ex=69b001c8&is=69aeb048&hm=f77326d7b2cd2452ae99a9ebd4f63b4639e76ebaf25c6b764d70e698ccdf9e4b&=&format=webp&width=417&height=902" class="main-img" style="max-height: 350px;" alt="Our first chat">
+            <p>I didn't know it yet, but this was the start of my favorite story where all i wanted is to say thanks to a kind person spporting me but then i start falling for your angelic soul 🥹</p>
+            <button class="click-me" onclick="nextPage(3)">Miles apart, but closer than ever →</button>
+        </div>
+
+        <div class="page" id="page3">
+            <h1>Our Favorite Moments</h1>
+            <div class="ld-visual">
+                <span>📍 Your City</span>
+                <div class="dotted-line"></div>
+                <span>📍 My City</span>
+            </div>
+            
+            <div class="photo-stack">
+                <div class="polaroid p1"><img src="https://media.discordapp.net/attachments/979747094858448966/1480166827190390905/image.jpg?ex=69b001c7&is=69aeb047&hm=51dff18e01c0a702a3212bd6aff350015a9068b1ba8ab1cd3a79a027516a51ca&=&format=webp&width=603&height=902"></div>
+                <div class="polaroid p2"><img src="https://media.discordapp.net/attachments/979747094858448966/1480166827643637994/image.jpg?ex=69b001c7&is=69aeb047&hm=8eb5437b20351a2f59288429a6097182946320d61053eb7e476b88def11524ed&=&format=webp&width=515&height=901"></div>
+                <div class="polaroid p3"><img src="https://media.discordapp.net/attachments/979747094858448966/1480166829107183857/image.jpg?ex=69b001c8&is=69aeb048&hm=3d8c4886683a2eb83c5c7d38cbc7ddd4421c720373f279be29c2f39cd517919b&=&format=webp&width=416&height=902"></div>
+                <div class="polaroid p4"><img src="https://media.discordapp.net/attachments/979747094858448966/1480166829451382946/image.jpg?ex=69b001c8&is=69aeb048&hm=e667b157e988cbef88b6c98dd204db8917ef27f46293a3fa85d35e105df480ba&=&format=webp&width=655&height=902"></div>
+                <div class="polaroid p5"><img src="https://media.discordapp.net/attachments/979747094858448966/1480166828700340345/image.jpg?ex=69b001c8&is=69aeb048&hm=b00232d214f21336704a459a6bee0f5672d83f46f0ea86ca61eee8ffd97738e1&=&format=webp&width=522&height=902"></div>
+                
+            </div>
+
+            <p>Distance is difficult we knew but our love grow stronger day by day making it impossible for us to live without each other. <br> Our love made the distnce between us look small and not such a deal to think about all we want since day one till now is having each other presence and as i always say allah ykhlik lia hyati you are my only blessing in life 🥺❤️</p>
+            <button class="click-me" onclick="nextPage(4)">I have a question... →</button>
+        </div>
+
+        <div class="page" id="page4">
+            <h1>My Promise</h1>
+            <div class="letter-box">
+                <p>To my kitty,</p>
+                <p>Every day with you is a gift, idc if it's through a screen or together t the same place as long as we are together thats what relly matter to me I love you more than all the miles between us combined. I promise to always be here for you, i ll be your shoulder to cry on you number one supporter your lifetime partner no matter what Hyati.</p>
+                <p>Will you stay with me forever my love?</p>
+                <p>oupsie you re stuck with me even after death 🤭❤️</p>
+            </div>
+            <button class="click-me" onclick="nextPage(5)">YES! ❤️</button>
+        </div>
+
+        <div class="page" id="page5">
+            <h1>Flowers For You 💐</h1>
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHUyOXo0bWRyMzczZXp2ZmplcXNueXdoZTV0cmlzeHhsNnF1azhjNSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/wvYNSqBAMDVx8CEYkt/giphy.gif" class="main-img">
+            <h1>I Love You!</h1>
+            <p>Can't wait until I can give you these in person. kan7maaaaaa9 3lik ahyati ❤️</p>
+            <button class="click-me" onclick="nextPage(1)">Watch Again ❤️</button>
+        </div>
+    </div>
+
+    <script>
+        function nextPage(num) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page' + num).classList.add('active');
+        }
+    </script>
+</body>
+</html>
